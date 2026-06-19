@@ -5,7 +5,7 @@ import com.ecom.Ecommerce.dto.UserRequest;
 import com.ecom.Ecommerce.dto.UserResponse;
 import com.ecom.Ecommerce.entity.Address;
 import com.ecom.Ecommerce.entity.User;
-import com.ecom.Ecommerce.repository.repository;
+import com.ecom.Ecommerce.repository.Repository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class UserService {
 
-    private final repository repository;
+    private final Repository repository;
 //    private List<User> userList = new ArrayList<>();
     private Long generatedId = 1L;
 
@@ -76,6 +76,7 @@ public class UserService {
             address.setCountry(request.getAddress().getCountry());
             address.setZipCode(request.getAddress().getZipCode());
             user.setAddress(address);
+            address.setUser(user);
         }
     }
 
